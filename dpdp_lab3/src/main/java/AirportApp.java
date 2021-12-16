@@ -6,6 +6,7 @@ import scala.Tuple2;
 public class AirportApp {
     private static String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
     private static String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
+    private static 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("dpdp_lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
