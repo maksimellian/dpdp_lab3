@@ -10,5 +10,6 @@ public class AirportApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> airports = sc.textFile(AIRPORTS_PATH);
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
+        airportData = 
     }
 }
