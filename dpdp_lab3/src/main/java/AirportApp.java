@@ -4,6 +4,9 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
+
+import java.util.Map;
+
 public class AirportApp {
     private static String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
     private static String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
@@ -24,7 +27,7 @@ public class AirportApp {
             String[] rowFields = row.split(COMMA);
             return new Tuple2<>(removeQuotes(rowFields[AIRPORT_CODE]), removeQuotes(rowFields[AIRPORT_DESCRIPTION]));
         });
-        final Broadcast
+        final Broadcast<Map>
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
     }
