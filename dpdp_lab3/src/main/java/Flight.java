@@ -8,6 +8,6 @@ public class Flight implements Serializable {
 
     public Flight(int originAirportId, int destinationAirportId) {
         this.originAirportId = originAirportId;
-
+        this.destination
     }
 }
