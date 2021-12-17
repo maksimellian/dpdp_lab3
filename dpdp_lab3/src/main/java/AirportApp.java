@@ -19,7 +19,7 @@ public class AirportApp {
         airports = removeHeader(airports);
         JavaPairRDD<String, String> airportPairs = airports.mapToPair(row -> {
             String[] rowFields = row.split(COMMA);
-        })
+        });
 
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
