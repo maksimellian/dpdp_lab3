@@ -11,6 +11,9 @@ public class AirportApp {
     private static int ORIGIN_AIRPORT_ID = 11;
     private static int DEST_AIRPORT_ID = 14;
     public static final int DELAY = 18;
+    private static int AIRPORT_CODE = 0;
+    private static int AIRPORT_DESCRIPTION = 1;
+    
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("dpdp_lab3");
