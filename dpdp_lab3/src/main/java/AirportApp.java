@@ -7,6 +7,7 @@ public class AirportApp {
     private static String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
     private static String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
     private static String QUOTE = "\"";
+    private static String COMMA = ",";
     private static int ORIGIN_AIRPORT_ID = 11;
     private static int DEST_AIRPORT_ID = 14;
     public static final int DELAY = 18;
@@ -17,7 +18,7 @@ public class AirportApp {
         JavaRDD<String> airports = sc.textFile(AIRPORTS_PATH);
         airports = removeHeader(airports);
         JavaPairRDD<String, String> airportPairs = airports.mapToPair(row -> {
-            String[] rowFields = 
+            String[] rowFields = row.split(COMMA);
         })
 
 
