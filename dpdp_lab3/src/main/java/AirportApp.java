@@ -23,6 +23,7 @@ public class AirportApp {
             String[] rowFields = row.split(COMMA);
             return new Tuple2<>(removeQuotes(rowFields[AIRPORT_CODE]), removeQuotes(rowFields[AIRPORT_DESCRIPTION]));
         });
+        final 
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
     }
