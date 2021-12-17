@@ -15,5 +15,19 @@ public class Flight implements Serializable {
         this.cancellationStatus = cancellationStatus;
     }
 
-    
+    public int getOriginAirportId() {
+        return this.originAirportId;
+    }
+
+    public int getDestinationAirportId() {
+        return this.destinationAirportId;
+    }
+
+    public double getDelay() {
+        return this.delay;
+    }
+
+    public double getCancellationStatus() {
+        return this.cancellationStatus;
+    }
 }
