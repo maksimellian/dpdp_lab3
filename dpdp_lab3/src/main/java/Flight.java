@@ -4,6 +4,7 @@ public class Flight implements Serializable {
     private int originAirportId;
     private int destinationAirportId;
     private double delay;
+    private double cancellation;
 
     public Flight() {}
 
