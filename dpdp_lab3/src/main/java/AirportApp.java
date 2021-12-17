@@ -19,14 +19,14 @@ public class AirportApp {
         airports = removeHeader(airports);
         JavaPairRDD<String, String> airportPairs = airports.mapToPair(row -> {
             String[] rowFields = row.split(COMMA);
-            return new Tuple2<>()
+            
         });
 
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
     }
 
-    public static String deleteQuotes(String str) {
+    public static String removeQuotes(String str) {
         return str.replaceAll(QUOTE, "");
     }
 
