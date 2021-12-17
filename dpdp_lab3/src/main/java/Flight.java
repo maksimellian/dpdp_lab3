@@ -10,6 +10,6 @@ public class Flight implements Serializable {
     public Flight(int originAirportId, int destinationAirportId, double delay) {
         this.originAirportId = originAirportId;
         this.destinationAirportId = destinationAirportId;
-        this.
+        this.delay = delay;
     }
 }
