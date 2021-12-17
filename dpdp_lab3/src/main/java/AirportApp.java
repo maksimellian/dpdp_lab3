@@ -8,15 +8,15 @@ import scala.Tuple2;
 import java.util.Map;
 
 public class AirportApp {
-    private static String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
-    private static String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
-    private static String QUOTE = "\"";
-    private static String COMMA = ",";
-    private static int ORIGIN_AIRPORT_ID = 11;
-    private static int DEST_AIRPORT_ID = 14;
-    public static final int DELAY = 18;
-    private static int AIRPORT_CODE = 0;
-    private static int AIRPORT_DESCRIPTION = 1;
+    private static final String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
+    private static final String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
+    private static final String QUOTE = "\"";
+    private static final String COMMA = ",";
+    private static final int ORIGIN_AIRPORT_ID = 11;
+    private static final int DEST_AIRPORT_ID = 14;
+    private static final int DELAY = 18;
+    private static final int AIRPORT_CODE = 0;
+    private static final int AIRPORT_DESCRIPTION = 1;
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("dpdp_lab3");
