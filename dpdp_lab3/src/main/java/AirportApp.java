@@ -30,6 +30,7 @@ public class AirportApp {
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportPairs.collectAsMap());
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
+        
     }
 
     public static String removeQuotes(String str) {
