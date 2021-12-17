@@ -7,7 +7,7 @@ public class Stats implements Serializable {
     private double lateFlightsPercent;
     private double cancelledFlightsPercent;
 
-    public StatsData(double maxDelay, int lateFlights, ) {
-        this.maxDelay =
+    public StatsData(double maxDelay, int lateFlights, int cancelledFlights) {
+        this.maxDelay = maxDelay
     }
 }
