@@ -16,7 +16,9 @@ public class AirportApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> airports = sc.textFile(AIRPORTS_PATH);
         airports = removeHeader(airports);
-        JavaPairRDD<String, String> airportPairs = airports.mapToPair(row -> )
+        JavaPairRDD<String, String> airportPairs = airports.mapToPair(row -> {
+            String[] rowFields = 
+        })
 
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
