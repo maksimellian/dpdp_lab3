@@ -6,4 +6,8 @@ public class Stats implements Serializable {
     private int cancelledFlights;
     private double lateFlightsPercent;
     private double cancelledFlightsPercent;
+
+    public StatsData() {
+        
+    }
 }
