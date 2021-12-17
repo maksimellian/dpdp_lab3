@@ -15,5 +15,5 @@ public class Stats implements Serializable {
         this.cancelledFlights = cancelledFlights;
     }
 
-    
+
 }
