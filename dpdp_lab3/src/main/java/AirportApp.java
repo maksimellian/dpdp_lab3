@@ -24,7 +24,6 @@ public class AirportApp {
             return new Tuple2<>(removeQuotes(rowFields[AIRPORT_CODE]), removeQuotes(rowFields[AIRPORT_DESCRIPTION]));
         });
 
-
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
     }
 
