@@ -7,7 +7,7 @@ public class Stats implements Serializable {
     private int cancelledFlights;
     private final static int INITIAL_FLIGHTS = 1;
     private final static int PERCENT = 100;
-    private final static String FLOAT_INPUT_FORMAT = "%.2f"
+    private final static String FLOAT_INPUT_FORMAT = "%.2f";
 
     public Stats(double maxDelay, int totalFlights, int lateFlights, int cancelledFlights) {
         this.maxDelay = maxDelay;
