@@ -53,7 +53,8 @@ public class Stats implements Serializable {
 
     public static Stats mergeCombiners(Stats st1, Stats st2) {
         double maxValue = Math.max(st1.getMaxDelay(), st2.getMaxDelay());
-        int late
+        int totalFlights = st1.getTotalFlights() + st2.getTotalFlights();
+        int lateFlights = 
     }
 
 
