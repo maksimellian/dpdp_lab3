@@ -12,6 +12,7 @@ public class AirportApp {
     private static final String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
     private static final String QUOTE = "\"";
     private static final String COMMA = ",";
+    private static final String SPACE = " ";
     private static final int ORIGIN_AIRPORT_ID = 11;
     private static final int DEST_AIRPORT_ID = 14;
     private static final int DELAY = 18;
@@ -44,7 +45,7 @@ public class AirportApp {
         JavaRDD<String> output = data.map(Stats -> {
             String originAirport = airportsBroadcasted.value().get(Stats._1._1);
             String destinationAirport = airportsBroadcasted.value().get(Stats._1._2);
-            return "originAirport = " + originAirport + " destinationAirport = "
+            return "originAirport = " + originAirport + " destinationAirport = " + destinationAirport + SPACE + 
         })
     }
 
