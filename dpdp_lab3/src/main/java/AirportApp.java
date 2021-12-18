@@ -41,7 +41,7 @@ public class AirportApp {
                             delay, cancellationCode));
         }).combineByKey(Stats::createCombiner, Stats::mergeValue, Stats::mergeCombiners);
 
-        JavaRDD<String> output = data.map
+        JavaRDD<String> output = data.map(Stats)
     }
 
     public static String removeQuotes(String str) {
