@@ -40,6 +40,8 @@ public class AirportApp {
                     new Flight(Integer.parseInt(fields[ORIGIN_AIRPORT_ID]), Integer.parseInt(fields[DEST_AIRPORT_ID]),
                             delay, cancellationCode));
         }).combineByKey(Stats::createCombiner, Stats::mergeValue, Stats::mergeCombiners);
+
+        JavaPairRDD
     }
 
     public static String removeQuotes(String str) {
