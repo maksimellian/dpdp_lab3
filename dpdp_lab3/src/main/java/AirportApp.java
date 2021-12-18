@@ -32,7 +32,7 @@ public class AirportApp {
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
         flights = removeHeader(flights);
-        JavaPairRDD<Tuple2, Stats>
+        JavaPairRDD<Tuple2, Stats> data = 
     }
 
     public static String removeQuotes(String str) {
