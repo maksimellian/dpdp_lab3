@@ -35,7 +35,7 @@ public class AirportApp {
         JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
             String[] fields = row.split(COMMA);
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
-            if 
+            
         });
     }
 
