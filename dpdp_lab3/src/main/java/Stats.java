@@ -59,5 +59,7 @@ public class Stats implements Serializable {
         return new Stats(maxDelay, totalFlights, lateFlights, cancelledFlights);
     }
 
+    
+
 
 }
