@@ -33,8 +33,8 @@ public class AirportApp {
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
         flights = removeHeader(flights);
         JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
-            String[] rowFields = row.split(COMMA);
-            double cancellationCode = 
+            String[] fields = row.split(COMMA);
+            double cancellationCode =  fields[CANCELLATION_STATUS];
         });
     }
 
