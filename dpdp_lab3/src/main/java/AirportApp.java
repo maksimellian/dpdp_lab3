@@ -36,7 +36,7 @@ public class AirportApp {
             String[] fields = row.split(COMMA);
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
             double delay = cancellationCode > 0 ? 0 : Double.parseDouble(fields[DELAY]);
-            return new Tuple2<>(new)
+            return new Tuple2<>(new Tuple2())
         });
     }
 
