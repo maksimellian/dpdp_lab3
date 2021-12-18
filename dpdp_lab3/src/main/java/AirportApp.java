@@ -42,7 +42,7 @@ public class AirportApp {
         }).combineByKey(Stats::createCombiner, Stats::mergeValue, Stats::mergeCombiners);
 
         JavaRDD<String> output = data.map(Stats -> {
-            String originAirport = 
+            String originAirport = airportsBroadcasted.
         })
     }
 
