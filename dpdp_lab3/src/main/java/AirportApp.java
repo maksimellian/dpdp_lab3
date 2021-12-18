@@ -49,6 +49,8 @@ public class AirportApp {
             return "originAirport = " + originAirport + " destinationAirport = " + destinationAirport + SPACE + Stats.toString();
         });
         output.saveAsTextFile(OUTPUT_PATH);
+        sc.stop();
+        sc.
     }
 
     public static String removeQuotes(String str) {
