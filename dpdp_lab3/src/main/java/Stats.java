@@ -60,6 +60,9 @@ public class Stats implements Serializable {
     }
 
     @Override
+    public static toString() {
+        
+    }
 
 
 }
