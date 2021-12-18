@@ -65,7 +65,9 @@ public class Stats implements Serializable {
         String formattedLateFlightsPercent = String.format(FLOAT_INPUT_FORMAT, lateFlightsPercent);
         double cancelledFlightsPercent = cancelledFlights/totalFlights * PERCENT;
         String formattedCancelledFlightsPercent = String.format(FLOAT_INPUT_FORMAT, cancelledFlightsPercent);
-        return "maxDelay = " + this.maxDelay + 
+        return "maxDelay = " + this.maxDelay + " lateFlightsPercent = " + lateFlightsPercent
+                + " cancelledFlightsPercent"
+
     }
 
 
