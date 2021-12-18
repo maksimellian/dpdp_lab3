@@ -34,7 +34,7 @@ public class AirportApp {
         flights = removeHeader(flights);
         JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
             String[] rowFields = row.split(COMMA);
-            
+            double cancellationCode = 
         });
     }
 
