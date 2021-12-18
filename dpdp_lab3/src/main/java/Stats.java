@@ -62,7 +62,7 @@ public class Stats implements Serializable {
     @Override
     public String toString() {
         double lateFlightsPercent = lateFlights/totalFlights * PERCENT;
-        String formattedLateFlightsPercent = String.format()
+        String formattedLateFlightsPercent = String.format(FLOAT_INPUT_FORMAT, )
         double int fl
     }
 
