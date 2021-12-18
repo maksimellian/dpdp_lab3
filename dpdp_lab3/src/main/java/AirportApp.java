@@ -33,8 +33,9 @@ public class AirportApp {
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
         flights = removeHeader(flights);
         JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
-            String[] rowFields = 
-        })
+            String[] rowFields = row.split(COMMA);
+            
+        });
     }
 
     public static String removeQuotes(String str) {
