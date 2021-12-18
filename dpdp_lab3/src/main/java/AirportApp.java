@@ -47,7 +47,7 @@ public class AirportApp {
             String destinationAirport = airportsBroadcasted.value().get(Stats._1._2);
             return "originAirport = " + originAirport + " destinationAirport = " + destinationAirport + SPACE + Stats.toString();
         });
-        res.save
+        output.saveAsTextFile();
     }
 
     public static String removeQuotes(String str) {
