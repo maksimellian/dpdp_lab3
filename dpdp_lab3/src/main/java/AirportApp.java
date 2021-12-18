@@ -10,7 +10,7 @@ import java.util.Map;
 public class AirportApp {
     private static final String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
     private static final String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
-    private static final String OUTPUT_PATH = "output/";
+    private static final String OUTPUT_PATH = "output/target.txt";
     private static final String QUOTE = "\"";
     private static final String COMMA = ",";
     private static final String SPACE = " ";
