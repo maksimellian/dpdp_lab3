@@ -39,7 +39,7 @@ public class AirportApp {
             return new Tuple2<>(new Tuple2(fields[ORIGIN_AIRPORT_ID], fields[DEST_AIRPORT_ID]),
                     new Flight(Integer.parseInt(fields[ORIGIN_AIRPORT_ID]), Integer.parseInt(fields[DEST_AIRPORT_ID]),
                             delay, cancellationCode));
-        }).combineByKey();
+        }).combineByKey(ST);
     }
 
     public static String removeQuotes(String str) {
