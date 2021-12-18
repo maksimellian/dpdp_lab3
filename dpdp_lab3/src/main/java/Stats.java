@@ -5,8 +5,6 @@ public class Stats implements Serializable {
     private int totalFlights;
     private int lateFlights;
     private int cancelledFlights;
-    private double lateFlightsPercent;
-    private double cancelledFlightsPercent;
     private final static int INITIAL_FLIGHTS = 1;
 
     public Stats(double maxDelay, int totalFlights, int lateFlights, int cancelledFlights) {
@@ -61,7 +59,7 @@ public class Stats implements Serializable {
 
     @Override
     public String toString() {
-        
+
     }
 
 
