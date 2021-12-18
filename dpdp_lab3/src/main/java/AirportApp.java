@@ -37,7 +37,7 @@ public class AirportApp {
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
             double delay = cancellationCode > 0 ? 0 : Double.parseDouble(fields[DELAY]);
             return new Tuple2<>(new Tuple2(fields[ORIGIN_AIRPORT_ID], fields[DEST_AIRPORT_ID]),
-                    new Flight(Integer.parseInt(fields[ORIGIN_AIRPORT_ID])))
+                    new Flight(Integer.parseInt(fields[ORIGIN_AIRPORT_ID]), Integer.parseInt(fields[DEST_AIRPORT_ID])));
         });
     }
 
