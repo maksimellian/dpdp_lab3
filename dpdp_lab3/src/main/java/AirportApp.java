@@ -10,7 +10,7 @@ import java.util.Map;
 public class AirportApp {
     private static final String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
     private static final String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
-    private static final String OUTPUT_PATH = "output/target.txt";
+    private static final String OUTPUT_PATH = "output/Stats.txt";
     private static final String QUOTE = "\"";
     private static final String COMMA = ",";
     private static final String SPACE = " ";
@@ -48,7 +48,7 @@ public class AirportApp {
             String destinationAirport = airportsBroadcasted.value().get(Stats._1._2);
             return "originAirport = " + originAirport + " destinationAirport = " + destinationAirport + SPACE + Stats.toString();
         });
-        output.saveAsTextFile();
+        output.saveAsTextFile(OUTPUT_PATH);
     }
 
     public static String removeQuotes(String str) {
