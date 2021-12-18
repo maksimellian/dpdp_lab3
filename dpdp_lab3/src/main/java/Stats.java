@@ -6,6 +6,7 @@ public class Stats implements Serializable {
     private int lateFlights;
     private int cancelledFlights;
     private final static int INITIAL_FLIGHTS = 1;
+    private final static int PERCENT = 100;
 
     public Stats(double maxDelay, int totalFlights, int lateFlights, int cancelledFlights) {
         this.maxDelay = maxDelay;
@@ -59,7 +60,7 @@ public class Stats implements Serializable {
 
     @Override
     public String toString() {
-        double lateFlightsPercent = lateFlights/totalFlights
+        double lateFlightsPercent = lateFlights/totalFlights * PERCENT;
     }
 
 
