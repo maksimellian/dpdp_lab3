@@ -56,7 +56,7 @@ public class Stats implements Serializable {
         int totalFlights = st1.getTotalFlights() + st2.getTotalFlights();
         int lateFlights = st1.getLateFlights() + st2.getLateFlights();
         int cancelledFlights = st1.getCancelledFlights() + st2.getCancelledFlights();
-        return new Stats(maxDelay)
+        return new Stats(maxDelay, totalFlights, lateFlights, cancelledFlights);
     }
 
 
