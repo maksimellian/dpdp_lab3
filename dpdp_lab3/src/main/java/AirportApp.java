@@ -50,7 +50,7 @@ public class AirportApp {
         });
         output.saveAsTextFile(OUTPUT_PATH);
         sc.stop();
-        sc.
+        sc.close();
     }
 
     public static String removeQuotes(String str) {
