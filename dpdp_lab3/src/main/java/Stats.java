@@ -61,7 +61,7 @@ public class Stats implements Serializable {
 
     @Override
     public static toString() {
-        double latePercent = lateFlig
+        double latePercent = la
     }
 
 
