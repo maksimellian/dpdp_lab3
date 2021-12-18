@@ -7,12 +7,52 @@ public class Stats implements Serializable {
     private int cancelledFlights;
     private double lateFlightsPercent;
     private double cancelledFlightsPercent;
+    private final static int INITIAL_FLIGHTS = 1;
 
     public Stats(double maxDelay, int totalFlights, int lateFlights, int cancelledFlights) {
         this.maxDelay = maxDelay;
         this.totalFlights = totalFlights;
         this.lateFlights = lateFlights;
         this.cancelledFlights = cancelledFlights;
+    }
+
+    public double getMaxDelay() {
+        return this.maxDelay;
+    }
+
+    public int getTotalFlights() {
+        return this.totalFlights;
+    }
+
+    public int getLateFlights() {
+        return this.lateFlights;
+    }
+
+    public int getCancelledFlights() {
+        return this.cancelledFlights;
+    }
+
+    public static Stats createCombiner(Flight value) {
+        return new Stats(value.getDelay(),
+                INITIAL_FLIGHTS, value.getDelay() > 0 ? 1 : 0, value.getCancellationStatus() > 0 ? 1 : 0);
+    }
+
+    public static Stats mergeValue(Stats stats, Flight flight) {
+        double maxDelay = Math.max(stats.getMaxDelay(), flight.getDelay());
+        int totalFlights = stats.getTotalFlights() + 1;
+        int cancelledFlights = stats.getCancelledFlights();
+        int lateFlights = stats.getLateFlights();
+        if (flight.getCancellationStatus() > 0) {
+            cancelledFlights++;
+        }
+        else if (flight.getDelay() > 0) {
+            lateFlights++;
+        }
+        return new Stats(maxDelay, totalFlights, lateFlights, cancelledFlights);
+    }
+
+    public static Stats mergeCombiners(Stats st1, Stats st2) {
+        double maxValue = Math.max(st1.getMaxDelay(), st2.getMaxDelay());
     }
 
 
