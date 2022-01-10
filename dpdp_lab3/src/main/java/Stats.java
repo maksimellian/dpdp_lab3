@@ -1,4 +1,7 @@
+import scala.Tuple2;
+
 import java.io.Serializable;
+import java.util.Map;
 
 public class Stats implements Serializable {
     private double maxDelay;
@@ -52,5 +55,7 @@ public class Stats implements Serializable {
         return this;
     }
 
-    public static String getResult()
+    public static String getResult(Tuple2<Tuple2<String, String>, Flight> flights, Map<String, String> map) {
+        
+    }
 }
