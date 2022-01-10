@@ -30,7 +30,6 @@ public class AirportApp {
             String[] rowFields = row.split(COMMA);
             return new Tuple2<>(removeQuotes(rowFields[AIRPORT_CODE]), removeQuotes(rowFields[AIRPORT_DESCRIPTION]));
         });
-        final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportPairs.collectAsMap());
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
         flights = removeHeader(flights);
@@ -43,6 +42,7 @@ public class AirportApp {
             return new Tuple2<>(new Tuple2<>(originAirport, destAirport), delay);
         }).combineByKey(new CreateCombiner(), new MergeValue(), new MergeCombiners());
 
+        final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportPairs.collectAsMap());
         JavaRDD<String> output = data.map(Stats -> {
             String originAirport = airportsBroadcasted.value().get(Stats._1._1);
             String destinationAirport = airportsBroadcasted.value().get(Stats._1._2);
