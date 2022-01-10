@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class    Stats implements Serializable {
+public class Stats implements Serializable {
     private double maxDelay;
     private int totalFlights;
     private int lateFlights;
@@ -9,7 +9,7 @@ public class    Stats implements Serializable {
     private final static int PERCENT = 100;
     private final static String FLOAT_INPUT_FORMAT = "%.2f";
 
-    public Stats(double maxDelay, int totalFlights, int lateFlights, int cancelledFlights) {
+    public Stats(double maxDelay, int lateFlights, int cancelledFlights, int totalFlights) {
         this.maxDelay = maxDelay;
         this.totalFlights = totalFlights;
         this.lateFlights = lateFlights;
