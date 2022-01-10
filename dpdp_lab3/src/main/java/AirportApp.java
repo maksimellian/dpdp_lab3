@@ -46,7 +46,7 @@ public class AirportApp {
         JavaRDD<String> output = data.map(Stats -> {
             String originAirport = airportsBroadcasted.value().get(Stats._1._1);
             String destinationAirport = airportsBroadcasted.value().get(Stats._1._2);
-            return "OriginAirport: " + originAirport + ", destinationAirport: " + destinationAirport + SPACE + Stats.toString();
+            return "OriginAirport: " + originAirport + "; destinationAirport: " + destinationAirport + SPACE + Stats.toString();
         });
         output.saveAsTextFile(OUTPUT_PATH);
         sc.stop();
