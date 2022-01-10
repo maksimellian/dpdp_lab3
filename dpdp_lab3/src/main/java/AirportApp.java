@@ -39,7 +39,7 @@ public class AirportApp {
             String originAirport = fields[ORIGIN_AIRPORT_ID];
             String destAirport = fields[DEST_AIRPORT_ID];
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
-            Double delay = Double.parseDouble(fields[DELAY]);
+            String delay = fields[DELAY];
             return new Tuple2<>(new Tuple2(fields[ORIGIN_AIRPORT_ID], fields[DEST_AIRPORT_ID]),
                     new Flight(Integer.parseInt(originAirport), Integer.parseInt(destAirport),
                             delay, cancellationCode));

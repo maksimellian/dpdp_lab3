@@ -33,22 +33,15 @@ public class Stats implements Serializable {
     }
 
     public static Stats createCombiner(Flight value) {
-        return new Stats(value.getDelay(),
-                INITIAL_FLIGHTS, value.getDelay() > 0 ? 1 : 0, value.getCancellationStatus() > 0 ? 1 : 0);
+        boolean isCancelled = value.getDelay().isEmpty();
+        double maxDelay = isCancelled ? 0 : Double.parseDouble(value.getDelay());
+        boolean isDelayed = maxDelay > 0;
+        return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, 1);
     }
 
     public static Stats mergeValue(Stats stats, Flight flight) {
-        double maxDelay = Math.max(stats.getMaxDelay(), flight.getDelay());
-        int totalFlights = stats.getTotalFlights() + 1;
-        int cancelledFlights = stats.getCancelledFlights();
-        int lateFlights = stats.getLateFlights();
-        if (flight.getCancellationStatus() > 0) {
-            cancelledFlights++;
-        }
-        else if (flight.getDelay() > 0) {
-            lateFlights++;
-        }
-        return new Stats(maxDelay, totalFlights, lateFlights, cancelledFlights);
+        Stats st1 = Stats.createCombiner(flight);
+        return mergeCombiners(stats, st1);
     }
 
     public static Stats mergeCombiners(Stats st1, Stats st2) {
