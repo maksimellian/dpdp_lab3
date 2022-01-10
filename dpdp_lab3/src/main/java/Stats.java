@@ -36,7 +36,7 @@ public class Stats implements Serializable {
         boolean isCancelled = value.getDelay().isEmpty();
         double maxDelay = isCancelled ? 0 : Double.parseDouble(value.getDelay());
         boolean isDelayed = maxDelay > 0;
-        return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, 1);
+        return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, INITIAL_FLIGHTS);
     }
 
     public static Stats mergeValue(Stats stats, Flight flight) {
