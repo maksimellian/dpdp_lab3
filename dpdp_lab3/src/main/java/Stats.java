@@ -52,16 +52,5 @@ public class Stats implements Serializable {
         return this;
     }
 
-    @Override
-    public String toString() {
-        if (this.totalFlights > 0) {
-            double lateFlightsPercent = lateFlights / totalFlights * PERCENT;
-            String formattedLateFlightsPercent = String.format(FLOAT_INPUT_FORMAT, lateFlightsPercent);
-            double cancelledFlightsPercent = cancelledFlights / totalFlights * PERCENT;
-            String formattedCancelledFlightsPercent = String.format(FLOAT_INPUT_FORMAT, cancelledFlightsPercent);
-            return "maxDelay = " + this.maxDelay + " lateFlightsPercent = " + lateFlightsPercent
-                    + " cancelledFlightsPercent = " + cancelledFlightsPercent;
-        }
-        return null;
-    }
+    public static 
 }
