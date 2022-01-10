@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class AirportApp {
     private static final String AIRPORTS_PATH = "L_AIRPORT_ID.csv";
-    private static final String FLIGHTS_PATH = "L_AIRPORT_ID.csv";
+    private static final String FLIGHTS_PATH = "664600583_T_ONTIME_sample.csv";
     private static final String OUTPUT_PATH = "output/Stats.txt";
     private static final String QUOTE = "\"";
     private static final String COMMA = ",";
@@ -22,7 +22,7 @@ public class AirportApp {
     private static final int CANCELLATION_STATUS = 19;
 
     public static void main(String[] args) {
-        SparkConf conf = new SparkConf().setAppName("dpdp_lab3");
+        SparkConf conf = new SparkConf().setAppName("dpdp_lab3").setMaster("local[2]").set("spark.executor.memory","1g");
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> airports = sc.textFile(AIRPORTS_PATH);
         airports = removeHeader(airports);
@@ -36,10 +36,12 @@ public class AirportApp {
         flights = removeHeader(flights);
         JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
             String[] fields = row.split(COMMA);
+            String originAirport = fields[ORIGIN_AIRPORT_ID];
+            String destAirport = fields[DEST_AIRPORT_ID];
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
             double delay = cancellationCode > 0 ? 0 : Double.parseDouble(fields[DELAY]);
             return new Tuple2<>(new Tuple2(fields[ORIGIN_AIRPORT_ID], fields[DEST_AIRPORT_ID]),
-                    new Flight(Integer.parseInt(fields[ORIGIN_AIRPORT_ID]), Integer.parseInt(fields[DEST_AIRPORT_ID]),
+                    new Flight(Integer.parseInt(originAirport), Integer.parseInt(destAirport),
                             delay, cancellationCode));
         }).combineByKey(Stats::createCombiner, Stats::mergeValue, Stats::mergeCombiners);
 

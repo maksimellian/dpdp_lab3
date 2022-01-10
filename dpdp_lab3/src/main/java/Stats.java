@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Stats implements Serializable {
+public class    Stats implements Serializable {
     private double maxDelay;
     private int totalFlights;
     private int lateFlights;
