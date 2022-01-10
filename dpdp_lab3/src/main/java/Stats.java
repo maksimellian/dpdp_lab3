@@ -40,7 +40,7 @@ public class Stats implements Serializable {
     }
 
     public static Stats mergeValue(String delay) {
-        Stats st1 = Stats.createCombiner(flight);
+        Stats st1 = Stats.createCombiner(delay);
         return mergeCombiners(stats, st1);
     }
 
