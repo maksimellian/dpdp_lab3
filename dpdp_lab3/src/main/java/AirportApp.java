@@ -43,8 +43,8 @@ public class AirportApp {
         }).combineByKey(new CreateCombiner(), new MergeValue(), new MergeCombiners());
 
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportPairs.collectAsMap());
-        JavaRDD<String> output = data.map(ports -> {
-
+        JavaRDD<String> output = data.map(Stats -> {
+            
         });
         output.saveAsTextFile(OUTPUT_PATH);
         sc.stop();
