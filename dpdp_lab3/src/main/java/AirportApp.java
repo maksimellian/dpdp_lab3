@@ -34,16 +34,14 @@ public class AirportApp {
 
         JavaRDD<String> flights = sc.textFile(FLIGHTS_PATH);
         flights = removeHeader(flights);
-        JavaPairRDD<Tuple2, Stats> data = flights.mapToPair(row -> {
+        JavaPairRDD<Tuple2<String, String>, Stats> data = flights.mapToPair(row -> {
             String[] fields = row.split(COMMA);
             String originAirport = fields[ORIGIN_AIRPORT_ID];
             String destAirport = fields[DEST_AIRPORT_ID];
             double cancellationCode = Double.parseDouble(fields[CANCELLATION_STATUS]);
             String delay = fields[DELAY];
-            return new Tuple2<>(new Tuple2(fields[ORIGIN_AIRPORT_ID], fields[DEST_AIRPORT_ID]),
-                    new Flight(Integer.parseInt(originAirport), Integer.parseInt(destAirport),
-                            delay, cancellationCode));
-        }).combineByKey(Stats::createCombiner, Stats::mergeValue, Stats::mergeCombiners);
+            return new Tuple2<>(new Tuple2<>(originAirport, destAirport), delay);
+        }).combineByKey(new CreateCombiner(), new MergeValue(), new MergeCombiners());
 
         JavaRDD<String> output = data.map(Stats -> {
             String originAirport = airportsBroadcasted.value().get(Stats._1._1);
