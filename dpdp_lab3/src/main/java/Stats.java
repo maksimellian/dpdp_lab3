@@ -1,7 +1,4 @@
-import scala.Tuple2;
-
 import java.io.Serializable;
-import java.util.Map;
 
 public class Stats implements Serializable {
     private double maxDelay;
@@ -55,7 +52,16 @@ public class Stats implements Serializable {
         return this;
     }
 
-    public static String getResult(Tuple2<Tuple2<String, String>, Stats> flights, Map<String, String> map) {
-        String delayedPercent = (flights._2)
+    @Override
+    public String toString() {
+        if (this.totalFlights > 0) {
+            double lateFlightsPercent = ((float) lateFlights / (float) totalFlights) * PERCENT;
+            String formattedLateFlightsPercent = String.format(FLOAT_INPUT_FORMAT, lateFlightsPercent);
+            double cancelledFlightsPercent = cancelledFlights / totalFlights * PERCENT;
+            String formattedCancelledFlightsPercent = String.format(FLOAT_INPUT_FORMAT, cancelledFlightsPercent);
+            return "maxDelay = " + this.maxDelay + " lateFlightsPercent = " + lateFlightsPercent
+                    + " cancelledFlightsPercent = " + cancelledFlightsPercent;
+        }
+        return null;
     }
 }
