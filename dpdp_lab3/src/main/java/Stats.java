@@ -55,7 +55,7 @@ public class Stats implements Serializable {
         return this;
     }
 
-    public static String getResult(Tuple2<Tuple2<String, String>, Flight> flights, Map<String, String> map) {
-        
+    public static String getResult(Tuple2<Tuple2<String, String>, Stats> flights, Map<String, String> map) {
+        String delayedPercent = (flights._2)
     }
 }
