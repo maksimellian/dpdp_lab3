@@ -39,14 +39,17 @@ public class Stats implements Serializable {
         return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, INITIAL_FLIGHTS);
     }
 
-    public static Stats mergeValue(String delay) {
+    public Stats mergeValue(String delay) {
         Stats st = Stats.createCombiner(delay);
         return this.mergeCombiners(st);
     }
 
-    public  Stats mergeCombiners(Stats st) {
+    public Stats mergeCombiners(Stats st) {
         this.maxDelay = Math.max(st.getMaxDelay(), this.maxDelay);
-        return null;
+        this.totalFlights += st.getTotalFlights();
+        this.lateFlights += st.getLateFlights();
+        this.cancelledFlights += st.getCancelledFlights();
+        return this;
     }
 
     @Override
