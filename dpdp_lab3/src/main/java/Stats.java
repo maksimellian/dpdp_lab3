@@ -62,5 +62,6 @@ public class Stats implements Serializable {
             return "maxDelay = " + this.maxDelay + " lateFlightsPercent = " + lateFlightsPercent
                     + " cancelledFlightsPercent = " + cancelledFlightsPercent;
         }
+        return null;
     }
 }
