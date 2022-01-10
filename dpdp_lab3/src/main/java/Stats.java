@@ -52,5 +52,5 @@ public class Stats implements Serializable {
         return this;
     }
 
-    public static 
+    public static String getResult()
 }
