@@ -32,9 +32,9 @@ public class Stats implements Serializable {
         return this.cancelledFlights;
     }
 
-    public static Stats createCombiner(Flight value) {
-        boolean isCancelled = value.getDelay().isEmpty();
-        double maxDelay = isCancelled ? 0 : Double.parseDouble(value.getDelay());
+    public static Stats createCombiner(String delay) {
+        boolean isCancelled = delay.isEmpty();
+        double maxDelay = isCancelled ? 0 : Double.parseDouble(delay);
         boolean isDelayed = maxDelay > 0;
         return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, INITIAL_FLIGHTS);
     }
