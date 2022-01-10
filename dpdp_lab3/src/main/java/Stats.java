@@ -39,7 +39,7 @@ public class Stats implements Serializable {
         return new Stats(maxDelay, isDelayed ? 1 : 0, isCancelled ? 1 : 0, INITIAL_FLIGHTS);
     }
 
-    public static Stats mergeValue(Stats stats, Flight flight) {
+    public static Stats mergeValue(String delay) {
         Stats st1 = Stats.createCombiner(flight);
         return mergeCombiners(stats, st1);
     }
